@@ -8,11 +8,11 @@ import static org.junit.jupiter.api.Assertions.*;
 class CalculatorTest {
 
 
-    private Calculator calculator;
+    private Calculator41 calculator;
 
     @BeforeEach
     void setUp() {
-        calculator = new Calculator();
+        calculator = new Calculator41();
     }
 
     @Test
@@ -46,6 +46,29 @@ class CalculatorTest {
     @Test
     void testDivisionByZero() {
         Exception exception = assertThrows(ArithmeticException.class, () -> calculator.divide(5, 0));
-        assertEquals("Cannot divide by zero", exception.getMessage());
+        assertEquals("/ by zero", exception.getMessage());
+    }
+
+    @Test
+    void testPower() {
+        assertEquals(8, calculator.power(2, 3), "2 ^ 3 should be 8");
+        assertEquals(5, calculator.power(5, 1), "5 ^ 1 should be 5");
+        assertEquals(1, calculator.power(3, 0), "3 ^ 0 should be 1");
+        assertEquals(0, calculator.power(0, 1), "0 ^ 1 should be 0");
+    }
+
+    @Test
+    void testModulus() {
+        assertEquals(-1, calculator.modulus(-10, 3), "-10 % 3 should be -1");
+        assertEquals(3, calculator.modulus(15, 4), "15 % 4 should be 3");
+        assertEquals(1, calculator.modulus(10, -3), "10 % -3 should be 1");
+    }
+
+    @Test
+    void testSquareRoot() {
+        assertEquals(5, calculator.squareRoot(25), "√25 should be 5");
+        assertEquals(1, calculator.squareRoot(1), "√1 should be 1");
+        assertEquals(2, calculator.squareRoot(4), "√4 should be 2");
+        assertEquals(0, calculator.squareRoot(0), "√0 should be 0");
     }
 }
