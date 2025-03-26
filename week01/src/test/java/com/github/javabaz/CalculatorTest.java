@@ -8,11 +8,11 @@ import static org.junit.jupiter.api.Assertions.*;
 class CalculatorTest {
 
 
-    private Calculator41 calculator;
+    private Calculator calculator;
 
     @BeforeEach
     void setUp() {
-        calculator = new Calculator41();
+        calculator = new Calculator();
     }
 
     @Test
